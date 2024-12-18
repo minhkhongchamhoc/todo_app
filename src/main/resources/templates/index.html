@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+<h1>Danh sách Todo</h1>
+<a href="/todos/add">Thêm mới</a>
+<ul>
+    <li th:each="todo : ${todos}">
+        <span th:text="${todo.title}"></span>
+        <span th:text="${todo.completed ? 'Hoàn thành' : 'Chưa hoàn thành'}"></span>
+        <a th:href="@{/todos/edit/{id}(id=${todo.id})}">Sửa</a>
+        <a th:href="@{/todos/delete/{id}(id=${todo.id})}">Xóa</a>
+    </li>
+</ul>
+</body>
+</html>
